@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Image,
   Platform,
@@ -9,12 +9,14 @@ import {
   View,
   Dimensions
 } from 'react-native';
-import { WebBrowser } from 'expo';
+import { WebBrowser, Constants } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 import MapView from 'react-native-maps';
-import { boundMethod } from 'autobind-decorator';
+
 import { MusicIDButton, SocialButton, HistoryButton } from '../components/MainNavButtons.js';
+import { boundMethod } from 'autobind-decorator';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -67,6 +69,11 @@ export default class HomeScreen extends React.Component {
           <MusicIDButton/>
           <SocialButton/>
           <HistoryButton/>
+        </View>
+
+        <View style={styles.container}>
+          <TouchableOpacity onPress={() => null}>
+          </TouchableOpacity>
         </View>
       </View>
     );

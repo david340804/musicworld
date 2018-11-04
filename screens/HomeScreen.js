@@ -27,8 +27,8 @@ export default class HomeScreen extends React.Component {
     super(props);
     this.state = {
       region: {
-        latitude: 37.78825,
-        longitude: -122.4324,
+        latitude: 33.775620,
+        longitude: -84.396286,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
       },
@@ -36,17 +36,6 @@ export default class HomeScreen extends React.Component {
     };
 
   }
-
-  // getInitialState() {
-  //   return {
-  //     region: {
-  //       latitude: 37.78825,
-  //       longitude: -122.4324,
-  //       latitudeDelta: 0.0922,
-  //       longitudeDelta: 0.0421,
-  //     },
-  //   };
-  // }
 
   @boundMethod
   onRegionChange(region) {
@@ -63,8 +52,9 @@ export default class HomeScreen extends React.Component {
           <MapView
               style={{height: '100%', width: '100%'}}
               region={this.state.region}
-              onRegionChange={this.onRegionChange}
-            />
+              onRegionChange={this.onRegionChange}>
+              
+            </MapView>
 
           <MusicIDButton/>
           <SocialButton/>

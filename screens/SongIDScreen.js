@@ -6,7 +6,7 @@ import { MusicIDButton } from '../components/MainNavButtons.js';
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
-    title: 'Links',
+    title: 'Song ID',
   };
 
   render() {

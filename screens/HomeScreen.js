@@ -215,7 +215,7 @@ export default class HomeScreen extends React.Component {
 
           <MusicIDButton
               onPress={() => {
-                navigate('Links', { name: 'Jane', transition: 'vertical'});
+                navigate('SongID', { name: 'Jane', transition: 'vertical'});
                 console.log('we hawwt');
                }
               }/>
@@ -227,7 +227,7 @@ export default class HomeScreen extends React.Component {
               }/>
           <HistoryButton
               onPress={() => {
-                navigate('Settings', { name: 'Jane', transition: 'vertical'});
+                navigate('History', { name: 'Jane', transition: 'vertical'});
                 console.log('we hawwt');
                }
               }/>

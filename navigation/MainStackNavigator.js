@@ -4,8 +4,8 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import SongIDScreen from '../screens/SongIDScreen';
+import HistoryScreen from '../screens/HistoryScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -18,6 +18,6 @@ HomeStack.navigationOptions = {
 
 export default createStackNavigator({
   Home: {screen: HomeScreen},
-  Links: {screen: LinksScreen},
-  Settings: {screen: SettingsScreen},
+  SongID: {screen: SongIDScreen},
+  History: {screen: HistoryScreen},
 });

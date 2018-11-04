@@ -72,7 +72,9 @@ export default class HomeScreen extends React.Component {
         </View>
 
         <View style={styles.container}>
-          <TouchableOpacity onPress={() => null}>
+          <TouchableOpacity style={styles.button}>
+            <Image source={require("../assets/images/note.png")}
+            style={{height: 60, width: 60}}/>
           </TouchableOpacity>
         </View>
       </View>
@@ -223,5 +225,19 @@ const styles = StyleSheet.create({
   helpLinkText: {
     fontSize: 14,
     color: '#2e78b7',
+  },
+  button: {
+    alignItems: 'center',
+    padding:10,
+    backgroundColor: '#8A55FF',
+    borderRadius: 50,
+    width: 100,
+    height: 100,
+    justifyContent: 'center',
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 5 },
+    shadowRadius: 10,
+    elevation: 10,
+    shadowOpacity: 0.75,
   },
 });

@@ -26,7 +26,7 @@ export default class LinksScreen extends React.Component {
         <View style={{flex: 3}}>
         <View style={{justifyContent: 'center', marginTop: 40}}>
             <Text style={{color: '#606060', marginTop: 0, paddingTop: 0,
-            textAlign: 'center', fontFamily: 'Roboto', fontSize: 18}}>
+            textAlign: 'center', fontSize: 18}}>
             99 XYZ Street Atlanta, Georgia
               {"\n"}
               {"\n"}

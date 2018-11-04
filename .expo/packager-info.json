@@ -1,9 +1,9 @@
 {
-  "devToolsPort": 19002,
+  "devToolsPort": 19003,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 102388,
-  "expoServerNgrokUrl": "https://fa-9f8.jvh6.musicworld.exp.direct",
-  "packagerNgrokUrl": "https://packager.fa-9f8.jvh6.musicworld.exp.direct",
-  "ngrokPid": 101340
+  "packagerPid": 28716,
+  "expoServerNgrokUrl": "https://ax-vnh.anonymous.musicworld.exp.direct",
+  "packagerNgrokUrl": "https://packager.ax-vnh.anonymous.musicworld.exp.direct",
+  "ngrokPid": 10328
 }

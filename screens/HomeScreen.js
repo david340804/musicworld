@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Image,
   Platform,
@@ -8,11 +8,12 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { WebBrowser } from 'expo';
+import { WebBrowser, Constants } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 import MapView from 'react-native-maps';
 import {boundMethod} from 'autobind-decorator'
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -68,6 +69,11 @@ export default class HomeScreen extends React.Component {
           <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
             <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
           </View>
+        </View>
+
+        <View style={styles.container}>
+          <TouchableOpacity onPress={() => null}>
+          </TouchableOpacity>
         </View>
       </View>
     );

@@ -62,7 +62,7 @@ export default class LinksScreen extends React.Component {
         <View style={{flex: 3}}>
           <View style={{height: 300,
           alignItems: 'center', justifyContent: 'center'}}>
-            <Image source={require("../assets/images/albumCoverEX.jpg")}
+            <Image source={require("../assets/images/journey_cover.png")}
               style={{height: 250, width: 250, marginTop: 17}}/>
           </View>
         </View>
@@ -75,7 +75,7 @@ export default class LinksScreen extends React.Component {
               {"\n"}
               <Text style={{color: Colors.primaryColor,
                 fontWeight: 'bold', fontSize: 25}}>
-                Song Name
+                Don't stop Believin
               </Text>
               {"\n"}
               <Text style={{color: Colors.primaryColor, fontSize: 20}}>
@@ -83,7 +83,7 @@ export default class LinksScreen extends React.Component {
               </Text>
               <Text style={{color: Colors.primaryColor,
                 fontWeight: 'bold', fontSize: 25}}>
-                {" "}Artist
+                {" "}Journey
               </Text>
             </Text>
           </View>

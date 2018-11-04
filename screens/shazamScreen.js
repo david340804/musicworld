@@ -12,6 +12,7 @@ export default class shazamScreen extends React.Component {
     state = {
     location: null,
     postal_code:  null   ,
+    song_name: null , 
     };
     
     let location = await Location.getCurrentPositionAsync({});

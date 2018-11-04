@@ -5,7 +5,7 @@ import Colors from '../constants/Colors';
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
-    title: 'Your Songs',
+    title: 'Your Song History',
   };
 
   constructor(props){

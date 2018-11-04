@@ -42,7 +42,7 @@ export default class HomeScreen extends React.Component {
             longitude: -84.396286,
           },
           title: 'Georgia Tech college of computing',
-          description: 'Genre: ',
+          description: 'Genre: Rap',
         },
         { //MJQ Concourse, EDM 33.7740° N, 84.3632° W
           key: 2,

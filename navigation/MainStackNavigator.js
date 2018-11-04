@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import SongIDScreen from '../screens/SongIDScreen';
 import HistoryScreen from '../screens/HistoryScreen';
+import SocialScreen from '../screens/SocialScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -20,4 +21,5 @@ export default createStackNavigator({
   Home: {screen: HomeScreen},
   SongID: {screen: SongIDScreen},
   History: {screen: HistoryScreen},
+  Social: {screen: SocialScreen},
 });

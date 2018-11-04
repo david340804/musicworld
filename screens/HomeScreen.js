@@ -221,7 +221,7 @@ export default class HomeScreen extends React.Component {
               }/>
           <SocialButton
               onPress={() => {
-                navigate('Links', { name: 'Jane', transition: 'vertical'});
+                navigate('Social', { name: 'Jane', transition: 'vertical'});
                 console.log('we hawwt');
                }
               }/>

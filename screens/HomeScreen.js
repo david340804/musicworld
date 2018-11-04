@@ -28,10 +28,10 @@ export default class HomeScreen extends React.Component {
     super(props);
     this.state = {
       region: {
-        latitude: 33.775620,
-        longitude: -84.396286,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
+        latitude: 33.785620,
+        longitude: -84.376286,
+        latitudeDelta: 0.15,
+        longitudeDelta: 0.06,
       },
       regionString: '...',
       markers: [
@@ -162,6 +162,32 @@ export default class HomeScreen extends React.Component {
 
     };
 
+    miniCircles = []
+    this.state.circles.forEach(
+      (baseCircle,index) => {
+        numberOfNewCirclesPerBaseCircle = 7;
+        radiusMean = baseCircle.radius * 0.5;
+        radiusAmp = baseCircle.radius * 0.75;
+
+        centerDeviationAmp = 0.015;
+        console.log(this.state.circles.length)
+        for( i=0; i<numberOfNewCirclesPerBaseCircle ; i++){
+
+          newSmallCircle = {
+            radius: radiusMean - (0.5 * radiusAmp) + (Math.random() * radiusAmp),
+            latlng: {
+              latitude: baseCircle.latlng.latitude + (Math.random() * 2 * centerDeviationAmp) - (0.5 * centerDeviationAmp),
+              longitude: baseCircle.latlng.longitude + (Math.random() * 2 * centerDeviationAmp) - (0.5 * centerDeviationAmp),
+            },
+            color: baseCircle.color,
+          };
+          miniCircles.push(newSmallCircle);
+        }
+      }
+    );
+
+    this.state.circles = this.state.circles.concat(miniCircles);
+    console.log(this.state.circles)
   }
 
   @boundMethod

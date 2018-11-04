@@ -3,11 +3,54 @@ import { ScrollView, StyleSheet, Text, View, AppRegistry, Image } from 'react-na
 import { ExpoLinksView } from '@expo/samples';
 import Colors from '../constants/Colors.js';
 import { MusicIDButton } from '../components/MainNavButtons.js';
+import { boundMethod } from 'autobind-decorator';
+import { Constants, Location, Permissions } from 'expo';
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
     title: 'Song ID',
   };
+  constructor(props) {
+    super(props);
+    this.state = {
+      location: null,
+      postal_code:  'no address',
+      locale_name: 'Finding Location Name...',
+      song_name: null , 
+      song_mp3: null,
+    };
+    this._getLocationAsync();
+  };
+
+  @boundMethod
+  async _getLocationAsync() {
+      let { status } = await Permissions.askAsync(Permissions.LOCATION);
+        if (status !== 'granted') {
+          this.setState({
+            errorMessage: 'Permission to access location was denied',
+          });
+      }
+
+      Location.getCurrentPositionAsync().then((location) => {
+        Location.reverseGeocodeAsync(
+          {
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude
+          }).then((arrayAddresses) => {
+            this.setState({
+              
+              locale_name: arrayAddresses[0].name,
+              postal_code: arrayAddresses[0].postalCode,
+            });
+            console.log('got postal code:' + JSON.stringify(arrayAddresses));
+        })
+      })
+      //let location = await Location.getCurrentPositionAsync({});
+      //this.setState({location})
+      //this should pull postal code but IDK 
+      //let postal_code = await Location.reverseGeocodeAsync(location.coords.latitude,location.coords.longitude);
+      //this.setState({postal_code})
+  }
 
   render() {
     return (
@@ -27,7 +70,7 @@ export default class LinksScreen extends React.Component {
         <View style={{justifyContent: 'center', marginTop: 40}}>
             <Text style={{color: '#606060', marginTop: 0, paddingTop: 0,
             textAlign: 'center', fontSize: 18}}>
-            99 XYZ Street Atlanta, Georgia
+              {this.state.locale_name}
               {"\n"}
               {"\n"}
               <Text style={{color: Colors.primaryColor,

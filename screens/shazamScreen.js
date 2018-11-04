@@ -1,6 +1,10 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
+import React, { Component } from 'react';
+import { Platform, Text, View, StyleSheet } from 'react-native';
+import { Constants, Location, Permissions } from 'expo';
+
 
 export default class shazamScreen extends React.Component {
   static navigationOptions = {
@@ -13,6 +17,7 @@ export default class shazamScreen extends React.Component {
     location: null,
     postal_code:  null   ,
     song_name: null , 
+    song_mp3: null,
     };
     
     let location = await Location.getCurrentPositionAsync({});
@@ -20,6 +25,7 @@ export default class shazamScreen extends React.Component {
     //this should pull postal code but IDK 
     let postal_code = await Location.reverseGeocodeAsync({this.state.postal_code});
     this.setState({postal_code})
+
   };
   render() {
     return (

@@ -7,12 +7,14 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Dimensions
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 import MapView from 'react-native-maps';
-import {boundMethod} from 'autobind-decorator'
+import { boundMethod } from 'autobind-decorator';
+import { MusicIDButton, SocialButton, HistoryButton } from '../components/MainNavButtons.js';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -46,56 +48,29 @@ export default class HomeScreen extends React.Component {
 
   @boundMethod
   onRegionChange(region) {
-    console.log('Region changed')
+    console.log(region)
 
-    //his.setState({regionString: JSON.stringify(region)})
+    //this.setState({regionString: JSON.stringify(region)})
     //this.state.regionString = ({ region: region });
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <MapView
-            style={{height: '50%', width: '100%'}}
-            region={this.state.region}
-            onRegionChange={this.onRegionChange}
-          />
-        <Text>{this.state.region ? this.state.region.latitude : '...'}</Text>
+        <View>
+          <MapView
+              style={{height: '100%', width: '100%'}}
+              region={this.state.region}
+              onRegionChange={this.onRegionChange}
+            />
 
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-          </View>
+          <MusicIDButton/>
+          <SocialButton/>
+          <HistoryButton/>
         </View>
       </View>
     );
   }
-
-  // <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          
-
-        //   <View style={styles.getStartedContainer}>
-        //     {this._maybeRenderDevelopmentModeWarning()}
-
-        //     <Text style={styles.getStartedText}>Get started by opening</Text>
-
-        //     <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-        //       <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-        //     </View>
-
-        //     <Text style={styles.getStartedText}>
-        //       Ayyyy.
-        //     </Text>
-        //   </View>
-
-        //   <View style={styles.helpContainer}>
-        //     <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-        //       <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-        //     </TouchableOpacity>
-        //   </View>
-        // </ScrollView>
 
   _maybeRenderDevelopmentModeWarning() {
     if (__DEV__) {

@@ -12,7 +12,7 @@ export class MusicIDButton extends React.Component {
   render() {
     return (
         <View style={[styles.bigButton,styles.buttonContainer]}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
             <Image source={require("../assets/images/note.png")}
             style={{height: 60, width: 60}}/>
           </TouchableOpacity>
@@ -27,7 +27,7 @@ export class SocialButton extends React.Component {
   render() {
     return (
         <View style={[styles.socialButton,styles.buttonContainer]}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
             <Image source={require("../assets/images/friends.png")}
             style={{height: 45, width: 45}}/>
           </TouchableOpacity>
@@ -40,7 +40,7 @@ export class HistoryButton extends React.Component {
   render() {
     return (
         <View style={[styles.historyButton,styles.buttonContainer]}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
             <Image source={require("../assets/images/heart.png")}
             style={{height: 45, width: 45}}/>
           </TouchableOpacity>

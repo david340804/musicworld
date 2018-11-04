@@ -46,6 +46,7 @@ export default class HomeScreen extends React.Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <View>
@@ -53,12 +54,27 @@ export default class HomeScreen extends React.Component {
               style={{height: '100%', width: '100%'}}
               region={this.state.region}
               onRegionChange={this.onRegionChange}>
-              
+
             </MapView>
 
-          <MusicIDButton/>
-          <SocialButton/>
-          <HistoryButton/>
+          <MusicIDButton
+              onPress={() => {
+                navigate('Links', { name: 'Jane', transition: 'vertical'});
+                console.log('we hawwt');
+               }
+              }/>
+          <SocialButton
+              onPress={() => {
+                navigate('Links', { name: 'Jane', transition: 'vertical'});
+                console.log('we hawwt');
+               }
+              }/>
+          <HistoryButton
+              onPress={() => {
+                navigate('Settings', { name: 'Jane', transition: 'vertical'});
+                console.log('we hawwt');
+               }
+              }/>
         </View>
 
         <View style={styles.container}>

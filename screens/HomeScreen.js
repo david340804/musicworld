@@ -80,7 +80,86 @@ export default class HomeScreen extends React.Component {
           title: 'Havana Club ATL',
           description: 'Genre: Latin',
         },
+        {//Electric Cowboy, Country 34.0053° N, 84.6011° W
+          key: 6,
+          latlng: {
+            latitude: 34.0053,
+            longitude: -84.6011,
+          },
+          title: 'Electric Cowboy',
+          description: 'Genre: Country',
+        },
+      ],
+      circles:[
+        {
+          key: 1,
+          latlng: {
+            latitude: 33.775620,
+            longitude: -84.396286,
+          },
+          title: 'Georgia Tech college of computing',
+          description: 'Genre: ',
+          radius: 1000,
+          color: 'rgba(59, 88, 230, 0.6)'
+        },
+        { //MJQ Concourse, EDM 33.7740° N, 84.3632° W
+          key: 2,
+          latlng: {
+            latitude: 33.7740,
+            longitude: -84.3632,
+          },
+          title: 'MJQ Concourse',
+          description: 'Genre: EDM',
+          radius: 700,
+          color: 'rgba(191, 63, 191,0.6)',
+        },
+        {//Opera Atlanta, Rap 33.7859° N, 84.3840° W
+          key: 3,
+          latlng: {
+            latitude: 33.7859,
+            longitude: -84.3840,
+          },
+          title: 'Opera',
+          description: 'Genre: Rap',
+          radius: 700,
+          color: 'rgba(63, 127, 191,0.6)',
+        },
+        {//Dark Horse Tavern, Rock 33.7768° N, 84.3526° W
+          key: 4,
+          latlng: {
+            latitude: 33.7768,
+            longitude: -84.3526,
+          },
+          title: 'Dark Horse Tavern',
+          description: 'Genre: Rock',
+          radius: 500,
+          color: 'rgba(191, 63, 63,0.6)',
+        },
+        {//Havana Club ATL, Latin 33.8409° N, 84.3707° W
+          key: 5,
+          latlng: {
+            latitude: 33.8409,
+            longitude: -84.3707,
+          },
+          title: 'Havana Club ATL',
+          description: 'Genre: Latin',
+          radius: 800,
+          color: 'rgba(63, 191, 63, 0.6)',
+        },
+        {//Electric Cowboy, Country 34.0053° N, 84.6011° W
+          key: 6,
+          latlng: {
+            latitude: 34.0053,
+            longitude: -84.6011,
+          },
+          title: 'Electric Cowboy',
+          description: 'Genre: Country',
+          radius: 200,
+          color: 'rgba(191, 127, 63,0.6)',
+        },
+
       ]
+
     };
 
   }
@@ -112,6 +191,17 @@ export default class HomeScreen extends React.Component {
                       description={marker.description}
                     />
                   )
+                )}
+               {this.state.circles.map(
+                  (circle,index) => (
+                    <Circle
+                      key = {index}
+                      center={circle.latlng}   
+                      radius = {circle.radius}
+                      strokeColor= {circle.color}
+                      fillColor= {circle.color}
+                      />
+                      )
                 )}
                 <Circle
                  center={{

@@ -11,47 +11,56 @@ import {
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
+import MapView from 'react-native-maps';
+import {boundMethod} from 'autobind-decorator'
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      region: {
+        latitude: 37.78825,
+        longitude: -122.4324,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+      },
+      regionString: '...'
+    };
+
+  }
+
+  // getInitialState() {
+  //   return {
+  //     region: {
+  //       latitude: 37.78825,
+  //       longitude: -122.4324,
+  //       latitudeDelta: 0.0922,
+  //       longitudeDelta: 0.0421,
+  //     },
+  //   };
+  // }
+
+  @boundMethod
+  onRegionChange(region) {
+    console.log('Region changed')
+
+    //his.setState({regionString: JSON.stringify(region)})
+    //this.state.regionString = ({ region: region });
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
-          </View>
-
-          <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
-
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-            </View>
-
-            <Text style={styles.getStartedText}>
-              Change this text and your app will automatically reload.
-            </Text>
-          </View>
-
-          <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
+        <MapView
+            style={{height: '50%', width: '100%'}}
+            region={this.state.region}
+            onRegionChange={this.onRegionChange}
+          />
+        <Text>{this.state.region ? this.state.region.latitude : '...'}</Text>
 
         <View style={styles.tabBarInfoContainer}>
           <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
@@ -63,6 +72,30 @@ export default class HomeScreen extends React.Component {
       </View>
     );
   }
+
+  // <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+          
+
+        //   <View style={styles.getStartedContainer}>
+        //     {this._maybeRenderDevelopmentModeWarning()}
+
+        //     <Text style={styles.getStartedText}>Get started by opening</Text>
+
+        //     <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
+        //       <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
+        //     </View>
+
+        //     <Text style={styles.getStartedText}>
+        //       Ayyyy.
+        //     </Text>
+        //   </View>
+
+        //   <View style={styles.helpContainer}>
+        //     <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
+        //       <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
+        //     </TouchableOpacity>
+        //   </View>
+        // </ScrollView>
 
   _maybeRenderDevelopmentModeWarning() {
     if (__DEV__) {
